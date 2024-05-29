@@ -22,9 +22,9 @@ def calcular_area_perimetro():
 
     if figura == "cuadrado":
         lado = float(input("Ingrese el lado del cuadrado: "))
-        if tipo_calculo == "área":
+        if tipo_calculo == "area":
             resultado = area_cuadrado(lado)
-        elif tipo_calculo == "perímetro":
+        elif tipo_calculo == "perimetro":
             resultado = perimetro_cuadrado(lado)
         else:
             print("Tipo de cálculo no válido.")
@@ -32,24 +32,24 @@ def calcular_area_perimetro():
     elif figura == "rectángulo" or figura == "rectangulo":
         base = float(input("Ingrese la base del rectángulo: "))
         altura = float(input("Ingrese la altura del rectángulo: "))
-        if tipo_calculo == "área":
+        if tipo_calculo == "area":
             resultado = area_rectangulo(base, altura)
-        elif tipo_calculo == "perímetro":
+        elif tipo_calculo == "perimetro":
             resultado = perimetro_rectangulo(base, altura)
         else:
             print("Tipo de cálculo no válido.")
             return
     elif figura == "triángulo equilátero" or figura == "triangulo equilatero":
         lado = float(input("Ingrese el lado del triángulo equilátero: "))
-        if tipo_calculo == "área":
+        if tipo_calculo == "area":
             resultado = area_triangulo_equilatero(lado)
-        elif tipo_calculo == "perímetro":
+        elif tipo_calculo == "perimetro":
             resultado = perimetro_triangulo_equilatero(lado)
         else:
             print("Tipo de cálculo no válido.")
             return
     else:
-        print("Figura no válida.")
+        print("Figura no válida, escribela con sus acentos...")
         return
 
     print(f"El {tipo_calculo} del {figura} es: {resultado}")
