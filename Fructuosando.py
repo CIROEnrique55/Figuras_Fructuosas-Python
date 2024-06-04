@@ -1,7 +1,7 @@
 import math
 import tkinter as tk
 from tkinter import ttk, messagebox
-from PIL import Image, ImageTk  # Necesita instalar Pillow: pip install pillow
+from PIL import Image, ImageTk 
 import os
 
 def calcular_area_perimetro():
