@@ -1,8 +1,22 @@
+"""
+Calculadora de figuras regulares
+
+Autor: CirOScript
+Versión: 1.0.0
+Copyright (C) 2024 CirOScript
+"""
+
+__author__ = "CirOScript"
+__version__ = "1.0.0"
+__copyright__ = "Copyright (C) 2024 CirOScript"
+
+
 import math
 import tkinter as tk
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk 
 import os
+
 
 def calcular_area_perimetro():
     def area_cuadrado(lado):
