@@ -1,14 +1,12 @@
 """
 Calculadora de figuras regulares
 
-Autor: CirOScript
-Versión: 1.0.0
-Copyright (C) 2024 CirOScript
+Autor: Grupo 2104 INFORMATICA-CONALEP CUAUTLA 173
+Versión: 1.0.4
 """
 
-__author__ = "CirOScript"
-__version__ = "1.0.0"
-__copyright__ = "Copyright (C) 2024 CirOScript"
+__author__ = "Grupo 2104 INFORMATICA-CONALEP CUAUTLA 173"
+__version__ = "1.0.4"
 
 
 import math
@@ -102,7 +100,7 @@ def calcular_area_perimetro():
 
  
     root = tk.Tk()
-    root.title("Cálculo de Área y Perímetro")
+    root.title("Cálculo de Area y Perímetro-ConalepCuautla-2104_INFORMATICA")
 
 
     script_dir = os.path.dirname(__file__)
