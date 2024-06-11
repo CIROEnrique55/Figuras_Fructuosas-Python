@@ -2,11 +2,11 @@
 Calculadora de figuras regulares
 
 Autor: Grupo 2104 INFORMATICA-CONALEP CUAUTLA 173
-Versión: 1.0.5
+Versión: 1.0.6
 """
 
 __author__ = "Grupo 2104 INFORMATICA-CONALEP CUAUTLA 173"
-__version__ = "1.0.5"
+__version__ = "1.0.6"
 
 import math
 import tkinter as tk
@@ -122,6 +122,8 @@ def calcular_area_perimetro():
 
     root = tk.Tk()
     root.title("Cálculo de Área y Perímetro - ConalepCuautla - 2104_INFORMATICA")
+    root.geometry("600x350") 
+    root.resizable(False, False) 
 
     script_dir = os.path.dirname(__file__)
     img_path = os.path.join(script_dir, "Titulo.jpg")
