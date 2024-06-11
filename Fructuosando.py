@@ -134,7 +134,7 @@ def calcular_area_perimetro():
         img_label = ttk.Label(root, image=img)
         img_label.pack(pady=10)
     except FileNotFoundError:
-        messagebox.showerror("Error", f"No se pudo encontrar la imagen en la ruta: {img_path}")
+        print("Error", f"No se pudo encontrar la imagen en la ruta: {img_path}")
         return
 
     main_frame = ttk.Frame(root, padding="10 10 10 10")
@@ -153,15 +153,15 @@ def calcular_area_perimetro():
     figura_combobox.grid(column=1, row=1)
 
     ttk.Label(main_frame, text="Lado:").grid(column=0, row=2, sticky=tk.W)
-    lado_entry = ttk.Entry(main_frame, width=20)
+    lado_entry = ttk.Entry(main_frame, width=23)
     lado_entry.grid(column=1, row=2)
 
     ttk.Label(main_frame, text="Base (para rectángulo):").grid(column=0, row=3, sticky=tk.W)
-    base_entry = ttk.Entry(main_frame, width=20)
+    base_entry = ttk.Entry(main_frame, width=23)
     base_entry.grid(column=1, row=3)
 
     ttk.Label(main_frame, text="Altura (para rectángulo):").grid(column=0, row=4, sticky=tk.W)
-    altura_entry = ttk.Entry(main_frame, width=20)
+    altura_entry = ttk.Entry(main_frame, width=23)
     altura_entry.grid(column=1, row=4)
 
     calcular_button = ttk.Button(main_frame, text="Calcular", command=calcular)
