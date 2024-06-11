@@ -2,19 +2,17 @@
 Calculadora de figuras regulares
 
 Autor: Grupo 2104 INFORMATICA-CONALEP CUAUTLA 173
-Versión: 1.0.4
+Versión: 1.0.5
 """
 
 __author__ = "Grupo 2104 INFORMATICA-CONALEP CUAUTLA 173"
-__version__ = "1.0.4"
-
+__version__ = "1.0.5"
 
 import math
 import tkinter as tk
 from tkinter import ttk, messagebox
-from PIL import Image, ImageTk 
+from PIL import Image, ImageTk
 import os
-
 
 def calcular_area_perimetro():
     def area_cuadrado(lado):
@@ -98,10 +96,32 @@ def calcular_area_perimetro():
         except ValueError as e:
             messagebox.showerror("Error", str(e))
 
- 
-    root = tk.Tk()
-    root.title("Cálculo de Area y Perímetro-ConalepCuautla-2104_INFORMATICA")
+    def mostrar_imagen():
+        for widget in root.winfo_children():
+            widget.destroy()
 
+        script_dir = os.path.dirname(__file__)
+        img_path = os.path.join(script_dir, "Imagen.jpg")
+        try:
+            img = Image.open(img_path)
+            img = img.resize((450, 250), Image.LANCZOS)
+            img = ImageTk.PhotoImage(img)
+            img_label = ttk.Label(root, image=img)
+            img_label.image = img  
+            img_label.pack(pady=10)
+        except FileNotFoundError:
+            messagebox.showerror("Error", f"No se pudo encontrar la imagen en la ruta: {img_path}")
+            return
+
+        back_button = ttk.Button(root, text="Regresar", command=reiniciar)
+        back_button.pack(pady=10)
+
+    def reiniciar():
+        root.destroy()
+        calcular_area_perimetro()
+
+    root = tk.Tk()
+    root.title("Cálculo de Área y Perímetro - ConalepCuautla - 2104_INFORMATICA")
 
     script_dir = os.path.dirname(__file__)
     img_path = os.path.join(script_dir, "Titulo.jpg")
@@ -109,7 +129,7 @@ def calcular_area_perimetro():
 
     try:
         img = Image.open(img_path)
-        img = img.resize((300, 100), Image.LANCZOS)
+        img = img.resize((450, 100), Image.LANCZOS)
         img = ImageTk.PhotoImage(img)
         img_label = ttk.Label(root, image=img)
         img_label.pack(pady=10)
@@ -122,13 +142,15 @@ def calcular_area_perimetro():
 
     ttk.Label(main_frame, text="Tipo de Cálculo (área/perímetro):").grid(column=0, row=0, sticky=tk.W)
     tipo_var = tk.StringVar()
-    tipo_entry = ttk.Entry(main_frame, width=20, textvariable=tipo_var)
-    tipo_entry.grid(column=1, row=0)
+    tipo_combobox = ttk.Combobox(main_frame, textvariable=tipo_var, state="readonly")
+    tipo_combobox['values'] = ("Área", "Perímetro")
+    tipo_combobox.grid(column=1, row=0)
 
-    ttk.Label(main_frame, text="Figura (cuadrado/rectángulo/triángulo equilátero/pentágono/etc.):").grid(column=0, row=1, sticky=tk.W)
+    ttk.Label(main_frame, text="Figura:").grid(column=0, row=1, sticky=tk.W)
     figura_var = tk.StringVar()
-    figura_entry = ttk.Entry(main_frame, width=20, textvariable=figura_var)
-    figura_entry.grid(column=1, row=1)
+    figura_combobox = ttk.Combobox(main_frame, textvariable=figura_var, state="readonly")
+    figura_combobox['values'] = ("Cuadrado", "Rectángulo", "Triángulo Equilátero", "Pentágono", "Hexágono", "Heptágono", "Octógono", "Eneágono", "Decágono")
+    figura_combobox.grid(column=1, row=1)
 
     ttk.Label(main_frame, text="Lado:").grid(column=0, row=2, sticky=tk.W)
     lado_entry = ttk.Entry(main_frame, width=20)
@@ -145,7 +167,9 @@ def calcular_area_perimetro():
     calcular_button = ttk.Button(main_frame, text="Calcular", command=calcular)
     calcular_button.grid(column=0, row=5, columnspan=2, pady=10)
 
- 
+    imagen_button = ttk.Button(root, text="INFORMACIÓN", command=mostrar_imagen)
+    imagen_button.pack(pady=10, anchor="se")
+
     root.mainloop()
 
 if __name__ == "__main__":
